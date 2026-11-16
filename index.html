@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人學習筆記與知識庫 | Personal Learning Wiki</title>
+  <style>
+    :root {
+      --bg-color: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --accent: #4F46E5;
+      --accent-light: #EEF2FF;
+      --border: #E2E8F0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+    /* 側邊導覽列 */
+    .sidebar {
+      width: 280px;
+      background-color: var(--card-bg);
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .sidebar h1 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .sidebar p.subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .nav-group-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin: 1.5rem 0 0.5rem;
+      font-weight: 700;
+    }
+    .sidebar ul { list-style: none; }
+    .sidebar li { margin-bottom: 0.4rem; }
+    .sidebar a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      display: block;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* 主內容區 */
+    .main-container {
+      margin-left: 280px;
+      flex: 1;
+      padding: 3rem 4rem;
+      max-width: 960px;
+    }
+    .note-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .note-card h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+    }
+    .tag {
+      background-color: var(--accent-light);
+      color: var(--accent);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .date { color: var(--text-muted); }
+    .summary-box {
+      background-color: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.75rem;
+    }
+    .summary-box strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .note-card h3 {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .note-card ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .note-card li { margin-bottom: 0.4rem; }
+    pre {
+      background: #0F172A;
+      color: #F8FAFC;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+      .main-container { margin-left: 0; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sidebar">
+    <h1>📚 學習筆記知識庫</h1>
+    <p class="subtitle">AI 驅動之模組化筆記系統</p>
+
+    <div class="nav-group-title">生成式 AI 實作</div>
+    <ul>
+      <li><a href="#note-1" class="active">01. AGENTS.md 專案架構設計</a></li>
+      <li><a href="#note-2">02. Vibe Coding 與規則驅動開發</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-container">
+    <article class="note-card" id="note-1">
+      <h2>建立自己的 AGENTS.md：讓 AI 讀懂專案規則</h2>
+      <div class="meta">
+        <span class="tag">第九週作業</span>
+        <span class="date">2026-11-16</span>
+      </div>
+
+      <div class="summary-box">
+        <strong>📌 本篇核心重點摘要</strong>
+        <ul>
+          <li>定義清晰的專案目的、視覺風格與 HTML 結構，讓 AI 具備長期維護能力。</li>
+          <li>統一檔案命名規範（kebab-case），避免多次生成後專案結構混亂。</li>
+          <li>只要新增一行指令，AI 就能依照既有模板快速擴充新筆記。</li>
+        </ul>
+      </div>
+
+      <h3>為什麼需要 AGENTS.md 或 CLAUDE.md？</h3>
+      <p>當我們使用 AI 開發網頁時，如果每次都只靠口頭描述，網站的風格與結構很容易不一致。透過在專案根目錄放置 <code>AGENTS.md</code>，相當於給 AI 一份標準作業程序（SOP），確保每次新增內容都符合規範。</p>
+
+      <h3>未來如何請 AI 擴充這個網站？</h3>
+      <p>當你想新增第三篇筆記時，只需要在對話框輸入以下指令：</p>
+      <pre><code>請先閱讀專案中的 AGENTS.md，並按照裡面的格式規範，在 index.html 新增一篇關於「Prompt Engineering 實戰技巧」的筆記卡片，同時更新左側導覽列。</code></pre>
+    </article>
+
+    <article class="note-card" id="note-2">
+      <h2>Vibe Coding 與規則驅動開發的差異</h2>
+      <div class="meta">
+        <span class="tag">開發方法論</span>
+        <span class="date">2026-11-16</span>
+      </div>
+
+      <div class="summary-box">
+        <strong>📌 本篇核心重點摘要</strong>
+        <ul>
+          <li>Vibe Coding 適合快速產出單次原型，重點在於「把這一個網頁做出來」。</li>
+          <li>規則驅動開發（Rule-Driven）重點在於「建立一套可重複擴充的系統」。</li>
+        </ul>
+      </div>
+
+      <h3>核心比較</h3>
+      <ul>
+        <li><strong>Vibe Coding</strong>：依靠直覺與即時對話調整畫面，適合單頁展示或短期靈感驗證。</li>
+        <li><strong>AGENTS.md 規範開發</strong>：先制定色彩、排版、目錄結構與限制條件，讓專案具備可持續擴充性。</li>
+      </ul>
+    </article>
+
+    <footer>
+      <p>本網站遵循專案根目錄之 <code>AGENTS.md</code> 規範開發生成 ｜ Powered by GitHub Pages</p>
+    </footer>
+  </main>
+
+</body>
+</html>
